@@ -1,0 +1,38 @@
+.toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toolbar select, .toolbar button {
+  min-height: 38px;
+}
+
+.toolbar input {
+  min-width: 220px;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-wrap tbody tr:hover {
+  background: rgba(249, 115, 22, 0.05);
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    width: 100%;
+  }
+
+  .toolbar input {
+    width: 100%;
+  }
+}

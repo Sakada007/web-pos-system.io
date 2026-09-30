@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Mart | Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/darkmode.css" />
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader-card">
+      <div class="loader-ring"></div>
+      <p>Loading Mini Mart Console</p>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-store"></i></div>
+        <div>
+          <h1>Mini Mart</h1>
+          <p>Management</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" data-nav="dashboard"><i class="fa-solid fa-gauge"></i><span>Dashboard</span></a>
+        <a href="products.html" class="active" data-nav="products"><i class="fa-solid fa-boxes-stacked"></i><span>Products</span></a>
+        <a href="sales.html" data-nav="sales"><i class="fa-solid fa-cash-register"></i><span>Sales</span></a>
+        <a href="customers.html" data-nav="customers"><i class="fa-solid fa-users"></i><span>Customers</span></a>
+        <a href="history.html" data-nav="history"><i class="fa-solid fa-clock-rotate-left"></i><span>History</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="ghost-btn" id="themeToggle"><i class="fa-solid fa-moon"></i><span>Dark Mode</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-btn mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <p class="eyebrow">Inventory</p>
+          <h2>Product Management</h2>
+        </div>
+        <div class="topbar-actions">
+          <button class="primary-btn" id="newProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+        </div>
+      </header>
+
+      <section class="page-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Catalog</p>
+            <h3>Products</h3>
+          </div>
+          <input type="search" id="productSearch" placeholder="Search by name or category" />
+        </div>
+
+        <form id="productForm" class="product-form">
+          <input type="hidden" id="productId" />
+          <div class="form-grid">
+            <input type="text" id="productName" placeholder="Product Name" required />
+            <input type="text" id="productCategory" placeholder="Category" required />
+            <input type="number" id="productPrice" placeholder="Price" step="0.01" required />
+            <input type="number" id="productStock" placeholder="Stock" required />
+            <textarea id="productDescription" class="full" placeholder="Description"></textarea>
+            <div class="upload-box full">
+              <label for="productImage">Upload Product Image</label>
+              <input type="file" id="productImage" accept="image/*" />
+              <div class="upload-preview">
+                <div class="upload-placeholder" id="productImagePlaceholder">
+                  <i class="fa-solid fa-image"></i>
+                  <span>Choose a poster or product photo</span>
+                </div>
+                <img id="productImagePreview" alt="Preview" />
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="primary-btn" type="submit">Save Product</button>
+            <button class="ghost-btn" type="reset" id="cancelProductBtn">Cancel</button>
+          </div>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-card confirm-card">
+      <h4>Confirm Action</h4>
+      <p id="confirmMessage"></p>
+      <div id="confirmInputWrap" style="display:none; margin-top:12px;">
+        <input type="text" id="confirmInput" placeholder="Type confirmation" />
+      </div>
+      <div class="modal-actions">
+        <button class="ghost-btn" onclick="closeModal('confirmModal')">Cancel</button>
+        <button class="primary-btn" id="confirmActionBtn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

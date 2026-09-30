@@ -1,0 +1,29 @@
+body.dark {
+  --bg: #07111f;
+  --surface: #101c2f;
+  --surface-soft: #16263b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+  --shadow: 0 20px 40px rgba(2, 8, 23, 0.42);
+}
+
+body.dark .sidebar,
+body.dark .page-card,
+body.dark .modal-card,
+body.dark .card,
+body.dark .table-wrap,
+body.dark input,
+body.dark select,
+body.dark textarea {
+  box-shadow: var(--shadow);
+}
+
+body.dark .table-wrap table tr:hover {
+  background: rgba(45, 212, 191, 0.08);
+}
+
+body.dark .ghost-btn {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text);
+}
